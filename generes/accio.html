@@ -5,7 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acció i Aventura - El Món dels Videojocs</title>
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            // Si és fosc, afegim la classe a l'etiqueta HTML (document.documentElement)
+            // L'etiqueta HTML existeix des del primer mil·lisegon.
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark-mode');
+            }
+        })();
+    </script>
     <link rel="stylesheet" href="accio.css">
+    <button id="back-to-top" aria-label="Tornar a l'inici">↑</button>
+    <script src="../JavaScript/main.js"></script>
 </head>
 
 <body>
@@ -13,7 +25,12 @@
     <header class="navbar">
         <nav class="nav-content">
             <a href="../index.html" class="nav-logo">👾 El Món dels Videojocs</a>
-            <ul>
+            <button class="mobile-menu-btn" aria-label="Obrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="../historia.html">Història</a></li>
                 <li><a href="../generes.html" class="active">Gèneres</a></li>
@@ -21,6 +38,11 @@
                 <li><a href="../profs.html">Professionals</a></li>
                 <li><a href="../gallery.html">Galeria</a></li>
                 <li><a href="../links.html">Enllaços</a></li>
+                <li>
+                    <button id="theme-toggle" class="theme-btn" aria-label="Canviar tema">
+                        🌙
+                    </button>
+                </li>
             </ul>
         </nav>
     </header>
@@ -33,7 +55,7 @@
                 <p class="hero-desc">L'equilibri perfecte entre narrativa, exploració i adrenalina.</p>
             </div>
             <div class="hero-backdrop">
-                [Imatge de fons: Uncharted / Tomb Raider]
+                <img src="https://artfiles.alphacoders.com/875/87578.jpg" alt="[Imatge de fons: Uncharted]">
             </div>
         </section>
 
@@ -54,7 +76,7 @@
 
             <div class="gallery-grid">
                 <div class="gallery-card">
-                    <div class="card-image">[Foto: The Legend of Zelda]</div>
+                    <div class="card-image"><img src="https://preview.redd.it/official-4k-version-of-this-artwork-from-my-nintendo-i-v0-o95erb6h9d6c1.png?auto=webp&s=74bd6ab0b9a56e0b5154c191afe4a2f1e13ff174" alt="[Foto: The Legend of Zelda]"></div>
                     <div class="card-info">
                         <h3>Exploració Oberta</h3>
                         <p>Jocs com <em>Zelda</em> prioritzen la llibertat i el descobriment de secrets.</p>
@@ -62,7 +84,7 @@
                 </div>
 
                 <div class="gallery-card">
-                    <div class="card-image">[Foto: Uncharted / Tomb Raider]</div>
+                    <div class="card-image"><img src="https://images6.alphacoders.com/423/thumb-1920-423181.jpg" alt="[Foto: Tomb Raider]"></div>
                     <div class="card-info">
                         <h3>Narrativa Cinematogràfica</h3>
                         <p>Experiències lineals on l'espectacle visual i la història són el centre.</p>
@@ -70,7 +92,7 @@
                 </div>
 
                 <div class="gallery-card">
-                    <div class="card-image">[Foto: God of War]</div>
+                    <div class="card-image"><img src="https://i.pinimg.com/736x/58/d8/1c/58d81cad99785cb3e821d653b869041a.jpg" alt="[Foto: Sekiro]"></div>
                     <div class="card-info">
                         <h3>Combat Tàctic</h3>
                         <p>L'acció requereix habilitat, reflexos i estratègia per derrotar enemics.</p>
@@ -92,10 +114,11 @@
         <p>&copy; 2025 Llenguatges Web - Entrega 1. Tots els drets reservats.</p>
         <p>
             Fet per Marc Márquez Soto |
-            <a href="#">Contacte</a> | 
+            <a href="#">Contacte</a> |
             <a href="#">Crèdits</a>
         </p>
     </footer>
 
 </body>
+
 </html>

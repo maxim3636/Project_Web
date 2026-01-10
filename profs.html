@@ -4,14 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Professionals - El Món dels Videojocs</title>
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            // Si és fosc, afegim la classe a l'etiqueta HTML (document.documentElement)
+            // L'etiqueta HTML existeix des del primer mil·lisegon.
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark-mode');
+            }
+        })();
+    </script>
     <link rel="stylesheet" href="StyleSheets/profs.css">
+    <button id="back-to-top" aria-label="Tornar a l'inici">↑</button>
+    <script src="JavaScript/main.js"></script>
 </head>
 <body>
 
     <header class="navbar">
         <nav class="nav-content">
             <a href="index.html" class="nav-logo">👾 El Món dels Videojocs</a>
-            <ul>
+            <button class="mobile-menu-btn" aria-label="Obrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="historia.html">Història</a></li>
                 <li><a href="generes.html">Gèneres</a></li>
@@ -19,6 +36,11 @@
                 <li><a href="profs.html" class="active">Professionals</a></li>
                 <li><a href="gallery.html">Galeria</a></li>
                 <li><a href="links.html">Enllaços</a></li>
+                <li>
+                    <button id="theme-toggle" class="theme-btn" aria-label="Canviar tema">
+                        🌙
+                    </button>
+                </li>
             </ul>
         </nav>
     </header>
@@ -26,11 +48,11 @@
     <main>
         <section class="page-hero">
             <div class="page-hero-content">
-                <h1>Professionals del Sector</h1>
-                <p class="subtitulo">Qui hi ha darrere de la màgia? Descobreix els rols clau.</p>
+                <h1 class="reveal">Professionals del Sector</h1>
+                <p class="subtitulo reveal delay-1">Qui hi ha darrere de la màgia? Descobreix els rols clau.</p>
             </div>
-            <div class="hero-image-placeholder">
-                [Imatge: Equip multidisciplinari treballant]
+            <div class="hero-image-placeholder reveal delay-2">
+                <img src="https://negativefive.vc/wp-content/uploads/2025/01/fotor-ai-2025012813524.jpg" alt="[Imatge: Equip multidisciplinari treballant]">
             </div>
         </section>
 
@@ -40,7 +62,7 @@
                 <h2>Un Esforç Multidisciplinari</h2>
                 <p>Crear un videojoc és com rodar una pel·lícula, construir un edifici i programar un sistema operatiu, tot alhora. Requereix la col·laboració estreta de perfils molt diferents que parlen "idiomes" distints.</p>
                 
-                <div class="content-image">[Gràfic: Engranatge de perfils]</div>
+                <div class="content-image"><img src="https://game-ace.com/wp-content/uploads/2020/11/game-developement-team.jpg" alt="[Gràfic: Perfils]"></div>
 
                 <h2>L'Especialització</h2>
                 <p>Antigament, una sola persona podia fer-ho tot. Avui dia, la complexitat de la indústria exigeix una alta especialització. Mentre uns defineixen les regles del joc, altres construeixen el motor que les executa, i uns tercers donen vida visual a aquest món.</p>

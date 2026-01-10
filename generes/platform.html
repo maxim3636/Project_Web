@@ -4,14 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plataformes - El Món dels Videojocs</title>
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            // Si és fosc, afegim la classe a l'etiqueta HTML (document.documentElement)
+            // L'etiqueta HTML existeix des del primer mil·lisegon.
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark-mode');
+            }
+        })();
+    </script>
     <link rel="stylesheet" href="platform.css">
+    <button id="back-to-top" aria-label="Tornar a l'inici">↑</button>
+    <script src="../JavaScript/main.js"></script>
 </head>
 <body>
 
     <header class="navbar">
         <nav class="nav-content">
             <a href="../index.html" class="nav-logo">👾 El Món dels Videojocs</a>
-            <ul>
+            <button class="mobile-menu-btn" aria-label="Obrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="../historia.html">Història</a></li>
                 <li><a href="../generes.html" class="active">Gèneres</a></li>
@@ -19,6 +36,11 @@
                 <li><a href="../profs.html">Professionals</a></li>
                 <li><a href="../gallery.html">Galeria</a></li>
                 <li><a href="../links.html">Enllaços</a></li>
+                <li>
+                    <button id="theme-toggle" class="theme-btn" aria-label="Canviar tema">
+                        🌙
+                    </button>
+                </li>
             </ul>
         </nav>
     </header>
@@ -31,7 +53,7 @@
                 <p class="hero-desc">Precisió, ritme i la recerca del salt perfecte.</p>
             </div>
             <div class="hero-backdrop">
-                [Imatge: Super Mario / Sonic / Celeste]
+                <img src="https://wallpapercave.com/wp/wp7619338.jpg" alt="[Imatge: Super Mario]">
             </div>
         </section>
 
@@ -50,7 +72,7 @@
 
             <div class="gallery-grid">
                 <div class="gallery-card">
-                    <div class="card-image">[Foto: Super Mario Bros / Sonic]</div>
+                    <div class="card-image"><img src="https://wallpapers.com/images/hd/rain-world-creature-encounter-mbw3d33fkvsproi4.jpg" alt="[Foto: Rain World]"></div>
                     <div class="card-info">
                         <h3>L'Era 2D (Side-Scroller)</h3>
                         <p>On tot va començar. Scroll lateral, píxels i una jugabilitat basada en la inèrcia.</p>
@@ -58,7 +80,7 @@
                 </div>
 
                 <div class="gallery-card">
-                    <div class="card-image">[Foto: Mario 64 / Crash Bandicoot]</div>
+                    <div class="card-image"><img src="https://images6.alphacoders.com/885/885765.png" alt="[Foto: Super Mario Odyssey]"></div>
                     <div class="card-info">
                         <h3>La Revolució 3D</h3>
                         <p>La introducció de la profunditat va canviar les regles, permetent l'exploració en 360 graus.</p>
@@ -66,7 +88,7 @@
                 </div>
 
                 <div class="gallery-card">
-                    <div class="card-image">[Foto: Celeste / Hollow Knight]</div>
+                    <div class="card-image"><img src="https://image.api.playstation.com/vulcan/ap/rnd/202508/2503/9396dc04cc0161e5a17f8775402f2c3afdcb5d8043a7ebf8.png" alt="[Foto: Hollow Knight: Silksong]"></div>
                     <div class="card-info">
                         <h3>Metroidvania i Precisió</h3>
                         <p>El gènere modern barreja plataformes amb mapes interconnectats i una dificultat exigent.</p>

@@ -4,14 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Designer - El Món dels Videojocs</title>
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            // Si és fosc, afegim la classe a l'etiqueta HTML (document.documentElement)
+            // L'etiqueta HTML existeix des del primer mil·lisegon.
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark-mode');
+            }
+        })();
+    </script>
     <link rel="stylesheet" href="designer.css">
+    <button id="back-to-top" aria-label="Tornar a l'inici">↑</button>
+    <script src="../JavaScript/main.js"></script>
 </head>
 <body>
 
     <header class="navbar">
         <nav class="nav-content">
             <a href="../index.html" class="nav-logo">👾 El Món dels Videojocs</a>
-            <ul>
+            <button class="mobile-menu-btn" aria-label="Obrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="../historia.html">Història</a></li>
                 <li><a href="../generes.html">Gèneres</a></li>
@@ -19,6 +36,11 @@
                 <li><a href="../profs.html" class="active">Professionals</a></li>
                 <li><a href="../gallery.html">Galeria</a></li>
                 <li><a href="../links.html">Enllaços</a></li>
+                <li>
+                    <button id="theme-toggle" class="theme-btn" aria-label="Canviar tema">
+                        🌙
+                    </button>
+                </li>
             </ul>
         </nav>
     </header>
@@ -31,7 +53,7 @@
                 <p class="hero-desc">L'arquitecte de la diversió. Defineix les regles, els sistemes i l'experiència.</p>
             </div>
             <div class="hero-backdrop">
-                [Imatge: Esquemes, Pissarra amb diagrames, Editor de nivells]
+                <img src="https://www.androidsis.com/wp-content/uploads/2020/06/levelhead.jpg" alt="[Imatge: Editor de nivells]">
             </div>
         </section>
 
@@ -51,7 +73,7 @@
 
             <div class="gallery-grid">
                 <div class="gallery-card">
-                    <div class="card-image">[Foto: Esquema de mecàniques / Excel]</div>
+                    <div class="card-image"><img src="https://gamedesignskills.com/wp-content/uploads/2023/06/What-is-the-Game-System_.png" alt="[Foto: Esquema de mecàniques]"></div>
                     <div class="card-info">
                         <h3>System Design</h3>
                         <p>Matemàtiques i lògica. Defineix quant de dany fa una espasa o a quina velocitat corre el personatge per mantenir l'equilibri.</p>
@@ -59,7 +81,7 @@
                 </div>
 
                 <div class="gallery-card">
-                    <div class="card-image">[Foto: Mapa en gris / Editor 3D]</div>
+                    <div class="card-image"><img src="https://assetstorev1-prd-cdn.unity3d.com/package-screenshot/25bc13e1-f024-40e2-9d3d-4fe7d91f8c5e_scaled.jpg" alt="[Foto: Editor 3D]"></div>
                     <div class="card-info">
                         <h3>Level Design</h3>
                         <p>Construeix els espais on juguem. Decideix on posar els enemics, les plataformes i els secrets per guiar al jugador sense paraules.</p>
@@ -67,7 +89,7 @@
                 </div>
 
                 <div class="gallery-card">
-                    <div class="card-image">[Foto: Arbre de diàleg / Guió]</div>
+                    <div class="card-image"><img src="https://gamingcampus.fr/wp-content/webp-express/webp-images/uploads/2020/12/Fiche-Me%CC%81tier-Sce%CC%81nariste-jeu-vide%CC%81o-2-320x250.png.webp" alt="[Foto: Narrative Design]"></div>
                     <div class="card-info">
                         <h3>Narrative Design</h3>
                         <p>Integra la història dins del joc. No només escriu diàlegs, sinó que fa que la jugabilitat expliqui la història.</p>

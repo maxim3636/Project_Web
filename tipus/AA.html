@@ -4,14 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doble A (AA) - El Món dels Videojocs</title>
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            // Si és fosc, afegim la classe a l'etiqueta HTML (document.documentElement)
+            // L'etiqueta HTML existeix des del primer mil·lisegon.
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark-mode');
+            }
+        })();
+    </script>
     <link rel="stylesheet" href="AA.css">
+    <button id="back-to-top" aria-label="Tornar a l'inici">↑</button>
+    <script src="../JavaScript/main.js"></script>
 </head>
 <body>
 
     <header class="navbar">
         <nav class="nav-content">
             <a href="../index.html" class="nav-logo">👾 El Món dels Videojocs</a>
-            <ul>
+            <button class="mobile-menu-btn" aria-label="Obrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="../historia.html">Història</a></li>
                 <li><a href="../generes.html">Gèneres</a></li>
@@ -19,6 +36,11 @@
                 <li><a href="../profs.html">Professionals</a></li>
                 <li><a href="../gallery.html">Galeria</a></li>
                 <li><a href="../links.html">Enllaços</a></li>
+                <li>
+                    <button id="theme-toggle" class="theme-btn" aria-label="Canviar tema">
+                        🌙
+                    </button>
+                </li>
             </ul>
         </nav>
     </header>
@@ -31,7 +53,7 @@
                 <p class="hero-desc">L'equilibri perfecte. Gràfics potents sense renunciar a l'ànima.</p>
             </div>
             <div class="hero-backdrop">
-                [Imatge: Hellblade / A Plague Tale / Control]
+                <img src="https://wallpapercave.com/wp/wp15037073.webp" alt="[Imatge: Hellblade / A Plague Tale / Control]">
             </div>
         </section>
 
@@ -51,7 +73,7 @@
 
             <div class="gallery-grid">
                 <div class="gallery-card">
-                    <div class="card-image">[Foto: Hellblade: Senua's Sacrifice]</div>
+                    <div class="card-image"><img src="https://i.pinimg.com/736x/b2/f4/cd/b2f4cdcbb6070f46a76a741350d21dfd.jpg" alt="[Foto: Hellblade: Senua's Sacrifice]"></div>
                     <div class="card-info">
                         <h3>Qualitat vs Quantitat</h3>
                         <p>No tenen mons oberts gegants, però ofereixen gràfics d'infart i actuacions d'alt nivell en experiències més curtes.</p>
@@ -59,15 +81,15 @@
                 </div>
 
                 <div class="gallery-card">
-                    <div class="card-image">[Foto: A Plague Tale / It Takes Two]</div>
+                    <div class="card-image"><img src="https://wallpaper.forfun.com/fetch/12/12abbc873910183f31509b407852968f.jpeg" alt="[Foto: It Takes Two]"></div>
                     <div class="card-info">
                         <h3>Innovació Tècnica</h3>
-                        <p>Jocs com <em>A Plague Tale</em> mostren com un equip mitjà pot crear tecnologia sorprenent (com milers de rates en pantalla).</p>
+                        <p>Jocs com <em>It Takes Two</em> mostren com un equip mitjà pot crear tecnologia sorprenent (com una mecànica de joc cooperatiu propera a la perfecció).</p>
                     </div>
                 </div>
 
                 <div class="gallery-card">
-                    <div class="card-image">[Foto: Control / Alan Wake]</div>
+                    <div class="card-image"><img src="https://i.redd.it/wallpapers-some-very-high-resolution-images-of-the-games-v0-c4q4dw227pxe1.png?width=3840&format=png&auto=webp&s=c376f348023dbaac437c30b64f6c7501338de6a7" alt="[Foto: Clair Obscur: Expedition 33]"></div>
                     <div class="card-info">
                         <h3>Narrativa Madura</h3>
                         <p>Sovint exploren temes psicològics o complexos que els jocs comercials (AAA) eviten per no perdre públic.</p>

@@ -4,14 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galeria - El Món dels Videojocs</title>
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            // Si és fosc, afegim la classe a l'etiqueta HTML (document.documentElement)
+            // L'etiqueta HTML existeix des del primer mil·lisegon.
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark-mode');
+            }
+        })();
+    </script>
     <link rel="stylesheet" href="StyleSheets/gallery.css">
-</head>
-<body>
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        
+        <a class="lightbox-prev" aria-label="Anterior">&#10094;</a>
+        <a class="lightbox-next" aria-label="Següent">&#10095;</a>
 
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="Galeria">
+            <div id="lightbox-caption"></div>
+        </div>
+    </div>
+    <button id="back-to-top" aria-label="Tornar a l'inici">↑</button>
+    <script src="JavaScript/main.js"></script>
+</head>
+<body class="preload">
     <header class="navbar">
         <nav class="nav-content">
             <a href="index.html" class="nav-logo">👾 El Món dels Videojocs</a>
-            <ul>
+            <button class="mobile-menu-btn" aria-label="Obrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="historia.html">Història</a></li>
                 <li><a href="generes.html">Gèneres</a></li>
@@ -19,6 +46,11 @@
                 <li><a href="profs.html">Professionals</a></li>
                 <li><a href="gallery.html" class="active">Galeria</a></li>
                 <li><a href="links.html">Enllaços</a></li>
+                <li>
+                    <button id="theme-toggle" class="theme-btn" aria-label="Canviar tema">
+                        🌙
+                    </button>
+                </li>
             </ul>
         </nav>
     </header>
@@ -26,12 +58,12 @@
     <main>
         <section class="page-hero">
             <div class="page-hero-content">
-                <h1>Galeria Visual</h1>
-                <p class="subtitulo">Un recorregut visual per l'art i la tecnologia dels videojocs.</p>
+                <h1 class="reveal">Galeria Visual</h1>
+                <p class="subtitulo reveal delay-1">Un recorregut visual per l'art i la tecnologia dels videojocs.</p>
             </div>
         </section>
 
-        <section class="gallery-block">
+        <section class="gallery-block reveal delay-2">
             <div class="block-header">
                 <h2>Art Conceptual</h2>
                 <p>L'origen de la imaginació. Esbossos i pintures que defineixen l'estil.</p>
@@ -39,25 +71,25 @@
             
             <div class="photo-grid">
                 <div class="photo-item large">
-                    <div class="photo-placeholder">[Concept Art: Paisatge Fantàstic]</div>
+                    <div class="photo-placeholder"><img src="https://cdnb.artstation.com/p/assets/images/images/049/802/955/large/sander-nogu-enviorment-render-finale-artstation.jpg?1653369031" alt="[Concept Art: Paisatge Fantàstic]"></div>
                     <span class="caption">Món Obert - Esbós inicial</span>
                 </div>
                 <div class="photo-item">
-                    <div class="photo-placeholder">[Concept Art: Personatge]</div>
+                    <div class="photo-placeholder"><img src="https://preview.redd.it/r6sx8vuw27r31.jpg?auto=webp&s=64c62b0bf0dd549461f34c6c47978696ae7e471d" alt="[Concept Art: Personatge]"></div>
                     <span class="caption">Disseny d'Heroi</span>
                 </div>
                 <div class="photo-item">
-                    <div class="photo-placeholder">[Concept Art: Arma/Objecte]</div>
+                    <div class="photo-placeholder"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7a366bd4-7d3e-4ea1-b1fb-e1cef18194bc/daokd4d-f4b0c24f-104e-467d-83ec-cf744174bbf1.jpg/v1/fill/w_1024,h_640,q_75,strp/sword_concept_art_by_hellhidedragon_daokd4d-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi83YTM2NmJkNC03ZDNlLTRlYTEtYjFmYi1lMWNlZjE4MTk0YmMvZGFva2Q0ZC1mNGIwYzI0Zi0xMDRlLTQ2N2QtODNlYy1jZjc0NDE3NGJiZjEuanBnIiwiaGVpZ2h0IjoiPD02NDAiLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS53YXRlcm1hcmsiXSwid21rIjp7InBhdGgiOiIvd20vN2EzNjZiZDQtN2QzZS00ZWExLWIxZmItZTFjZWYxODE5NGJjL2hlbGxoaWRlZHJhZ29uLTQucG5nIiwib3BhY2l0eSI6OTUsInByb3BvcnRpb25zIjowLjQ1LCJncmF2aXR5IjoiY2VudGVyIn19.4s9HQ0PbXhkls92IzWHOQcbMwjFXJy6KkxRVXx3V1S0" alt="[Concept Art: Arma/Objecte]"></div>
                     <span class="caption">Attrezzo</span>
                 </div>
                 <div class="photo-item">
-                    <div class="photo-placeholder">[Concept Art: Ciutat Futurista]</div>
+                    <div class="photo-placeholder"><img src="https://zerply-library.accelerator.net/a98/d5c37ed47a90e80b3847a9c54005ea98/media_library/03670b74c47d11c19a667805639ff9f2/main;resize(1600,900,fit).jpg" alt="[Concept Art: Ciutat Futurista]"></div>
                     <span class="caption">Ambientació Cyberpunk</span>
                 </div>
             </div>
         </section>
 
-        <section class="gallery-block">
+        <section class="gallery-block reveal">
             <div class="block-header">
                 <h2>Captures In-Game</h2>
                 <p>La bellesa del temps real. Gràfics renderitzats pel motor del joc.</p>
@@ -65,21 +97,21 @@
             
             <div class="photo-grid">
                 <div class="photo-item">
-                    <div class="photo-placeholder">[Screenshot: Acció Frenètica]</div>
+                    <div class="photo-placeholder"><img src="https://assetsio.gnwcdn.com/elden-ring-bosses-in-order-main-mandatory-8042-1647011924713.jpg?width=1600&height=900&fit=crop&quality=100&format=png&enable=upscale&auto=webp" alt="[Screenshot: Boss Combat]"></div>
                     <span class="caption">Combat Boss</span>
                 </div>
                 <div class="photo-item">
-                    <div class="photo-placeholder">[Screenshot: Il·luminació]</div>
+                    <div class="photo-placeholder"><img src="https://acf.geeknetic.es/imagenes/tutoriales/definiciones/2020/4/ray-tracing-eqfm.jpg" alt="[Screenshot: Il·luminació]"></div>
                     <span class="caption">Ray Tracing</span>
                 </div>
                 <div class="photo-item large">
-                    <div class="photo-placeholder">[Screenshot: Panoràmica]</div>
+                    <div class="photo-placeholder"><img src="https://live.staticflickr.com/65535/50120212982_7161941900_k.jpg" alt="[Screenshot: Panoràmica]"></div>
                     <span class="caption">Mode Foto - Paisatge</span>
                 </div>
             </div>
         </section>
 
-        <section class="gallery-block">
+        <section class="gallery-block reveal">
             <div class="block-header">
                 <h2>Cultura Gamer</h2>
                 <p>E-Sports, convencions i la comunitat.</p>
@@ -87,19 +119,19 @@
             
             <div class="photo-grid">
                 <div class="photo-item">
-                    <div class="photo-placeholder">[Foto: Estadi E-Sports]</div>
+                    <div class="photo-placeholder"><img src="https://library.sportingnews.com/styles/crop_style_16_9_desktop_webp/s3/2025-11/54894206835_68934912d2_6k.jpg.webp?itok=ND_Tit6t" alt="[Foto: Estadi E-Sports]"></div>
                     <span class="caption">Final del Mundial</span>
                 </div>
                 <div class="photo-item">
-                    <div class="photo-placeholder">[Foto: Cosplay]</div>
+                    <div class="photo-placeholder"><img src="https://www.herinteractive.com/wp-content/uploads/PaxWest-Cosplay.jpg" alt="[Foto: Cosplay]"></div>
                     <span class="caption">Cosplay a la fira</span>
                 </div>
                 <div class="photo-item">
-                    <div class="photo-placeholder">[Foto: Setup Gamer]</div>
+                    <div class="photo-placeholder"><img src="https://i.ytimg.com/vi/EA0YC9m6D4s/maxresdefault.jpg" alt="[Foto: Setup Gamer]"></div>
                     <span class="caption">Setup PC Gaming</span>
                 </div>
                 <div class="photo-item">
-                    <div class="photo-placeholder">[Foto: Desenvolupadors]</div>
+                    <div class="photo-placeholder"><img src="https://www.ziprecruiter.com/svc/fotomat/public-ziprecruiter/cms/846843174GameDeveloper.jpg=ws1280x960" alt="[Foto: Desenvolupadors]"></div>
                     <span class="caption">Equip Indie treballant</span>
                 </div>
             </div>

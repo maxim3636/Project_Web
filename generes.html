@@ -4,14 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gèneres - El Món dels Videojocs</title>
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            // Si és fosc, afegim la classe a l'etiqueta HTML (document.documentElement)
+            // L'etiqueta HTML existeix des del primer mil·lisegon.
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark-mode');
+            }
+        })();
+    </script>
     <link rel="stylesheet" href="StyleSheets/generes.css">
+    <button id="back-to-top" aria-label="Tornar a l'inici">↑</button>
+    <script src="JavaScript/main.js"></script>
 </head>
 <body>
 
     <header class="navbar">
         <nav class="nav-content">
             <a href="index.html" class="nav-logo">👾 El Món dels Videojocs</a>
-            <ul>
+            <button class="mobile-menu-btn" aria-label="Obrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="historia.html">Història</a></li>
                 <li><a href="generes.html" class="active">Gèneres</a></li>
@@ -19,6 +36,11 @@
                 <li><a href="profs.html">Professionals</a></li>
                 <li><a href="gallery.html">Galeria</a></li>
                 <li><a href="links.html">Enllaços</a></li>
+                <li>
+                    <button id="theme-toggle" class="theme-btn" aria-label="Canviar tema">
+                        🌙
+                    </button>
+                </li>
             </ul>
         </nav>
     </header>
@@ -26,11 +48,11 @@
     <main>
         <section class="page-hero">
             <div class="page-hero-content">
-                <h1>Gèneres Principals</h1>
-                <p class="subtitulo">Com classifiquem les experiències interactives?</p>
+                <h1 class="reveal">Gèneres Principals</h1>
+                <p class="subtitulo reveal delay-1">Com classifiquem les experiències interactives?</p>
             </div>
-            <div class="hero-image-placeholder">
-                [Imatge: Collage de Gèneres]
+            <div class="hero-image-placeholder reveal delay-2">
+                <img src="https://streamhatchet.com/wp-content/uploads/2025/07/Game-Genres-3.jpg" alt="[Imatge: Collage de Gèneres]">
             </div>
         </section>
 
@@ -40,7 +62,7 @@
                 <h2>Què defineix un gènere?</h2>
                 <p>A diferència del cinema o la literatura, on els gèneres es defineixen per la temàtica (comèdia, terror, drama), als videojocs els gèneres es defineixen principalment per la <strong>interacció</strong> i les mecàniques de joc.</p>
                 
-                <div class="content-image">[Iconografia de comandaments]</div>
+                <div class="content-image"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3288210/086a92d4f87b6ab75136d9e52f6579841521ad5d/ss_086a92d4f87b6ab75136d9e52f6579841521ad5d.1920x1080.jpg?t=1765474236" alt="[Iconografia de mecàniques]"></div>
 
                 <h2>L'Evolució i la Hibridació</h2>
                 <p>Originalment, les categories eren molt tancades. Avui dia, és difícil trobar un joc "pur". La majoria de títols moderns barregen elements: un joc d'acció pot tenir un sistema de nivells (RPG), i un joc de plataformes pot incloure trets.</p>

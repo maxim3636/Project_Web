@@ -4,14 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artist - El Món dels Videojocs</title>
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            // Si és fosc, afegim la classe a l'etiqueta HTML (document.documentElement)
+            // L'etiqueta HTML existeix des del primer mil·lisegon.
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark-mode');
+            }
+        })();
+    </script>
     <link rel="stylesheet" href="artist.css">
+    <button id="back-to-top" aria-label="Tornar a l'inici">↑</button>
+    <script src="../JavaScript/main.js"></script>
 </head>
 <body>
 
     <header class="navbar">
         <nav class="nav-content">
             <a href="../index.html" class="nav-logo">👾 El Món dels Videojocs</a>
-            <ul>
+            <button class="mobile-menu-btn" aria-label="Obrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="../historia.html">Història</a></li>
                 <li><a href="../generes.html">Gèneres</a></li>
@@ -19,6 +36,11 @@
                 <li><a href="../profs.html"class="active">Professionals</a></li>
                 <li><a href="../gallery.html">Galeria</a></li>
                 <li><a href="../links.html">Enllaços</a></li>
+                <li>
+                    <button id="theme-toggle" class="theme-btn" aria-label="Canviar tema">
+                        🌙
+                    </button>
+                </li>
             </ul>
         </nav>
     </header>
@@ -31,7 +53,7 @@
                 <p class="hero-desc">L'ànima visual. Dona forma, color i vida als mons que imaginem.</p>
             </div>
             <div class="hero-backdrop">
-                [Imatge: Concept Art / Modelatge 3D / Paleta de colors]
+                <img src="https://colorcodes.imgix.net/2RpuOyr3CwlkZ9x9pyUEXB/b66cab0c7a8020b61ae4027a16d7166d/html-color-codes-color-palette-generators-coolors.png?w=3840&q=60&auto=format,compress" alt="[Imatge: Paleta de colors]">
             </div>
         </section>
 
@@ -51,7 +73,7 @@
 
             <div class="gallery-grid">
                 <div class="gallery-card">
-                    <div class="card-image">[Foto: Esbós / Concept Art]</div>
+                    <div class="card-image"><img src="https://www.industriaanimacion.com/wp-content/uploads/2021/01/Cover-15.jpg" alt="[Foto: Concept Art]"></div>
                     <div class="card-info">
                         <h3>Concept Artist</h3>
                         <p>Els primers a visualitzar el joc. Dibuixen esbossos ràpids per definir l'atmosfera, els vestits i els entorns abans de modelar res.</p>
@@ -59,7 +81,7 @@
                 </div>
 
                 <div class="gallery-card">
-                    <div class="card-image">[Foto: Maya / Blender / ZBrush]</div>
+                    <div class="card-image"><img src="https://www.blendernation.com/wp-content/uploads/2019/04/image1.jpg" alt="[Foto: Blender]"></div>
                     <div class="card-info">
                         <h3>3D Artist / Modeler</h3>
                         <p>Esculpeixen els personatges i objectes en tres dimensions, aplicant textures i materials perquè semblin reals o estilitzats.</p>
@@ -67,7 +89,7 @@
                 </div>
 
                 <div class="gallery-card">
-                    <div class="card-image">[Foto: Rigging / Animació]</div>
+                    <div class="card-image"><img src="https://i.ytimg.com/vi/MAM7mF2v7dE/maxresdefault.jpg" alt="[Foto: Rigging]"></div>
                     <div class="card-info">
                         <h3>Animator / VFX</h3>
                         <p>Fan que les coses es moguin. Des de la recàrrega d'una arma fins a les explosions màgiques (Efectes Visuals).</p>

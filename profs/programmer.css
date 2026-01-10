@@ -153,6 +153,14 @@ body {
     border: 1px solid #1a1a1a;
 }
 
+.hero-backdrop img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: center center;
+    border-radius: 20px;
+}
+
 /* =========================================
    4. INTRODUCCIÓ
    ========================================= */
@@ -238,6 +246,13 @@ body {
     color: #0c6e1c;
     font-weight: 600;
     font-family: monospace;
+}
+
+.card-image img{
+   width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: center center;
 }
 
 .card-info {
@@ -342,16 +357,7 @@ body {
    RESPONSIVE
    ========================================= */
 @media (max-width: 768px) {
-    .nav-content {
-        flex-direction: column;
-        padding: 1rem;
-        height: auto;
-    }
-
-    .navbar ul {
-        margin-top: 1rem;
-        justify-content: center;
-    }
+    
 
     .role-hero h1 {
         font-size: 2.5rem;
@@ -370,5 +376,234 @@ body {
     .nav-btn.next {
         text-align: center;
         margin: 0 auto;
+    }
+}
+
+
+
+/* =========================================
+   MENÚ MÒBIL (HAMBURGUESA)
+   ========================================= */
+
+/* 1. Per defecte (PC), el botó està amagat */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+/* Estil de les 3 ratlles de l'hamburguesa */
+.mobile-menu-btn span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: var(--color-texto-principal);
+    margin: 5px 0;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* 2. Estils per a Mòbil (Sobreescrivim el comportament anterior) */
+@media (max-width: 768px) {
+
+    .navbar ul {
+        gap: 1rem; /* Reducimos espacio entre enlaces */
+    }
+    
+    /* Mostrem el botó */
+    .mobile-menu-btn {
+        display: block;
+        z-index: 101; /* Per sobre de tot */
+    }
+
+    /* Amaguem la llista d'enllaços per defecte */
+    .nav-links {
+        position: absolute;
+        top: 100%; /* Just a sota de la barra */
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.95); /* Fons gairebé opac */
+        backdrop-filter: blur(20px); /* Efecte vidre Apple */
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--color-borde);
+        
+        flex-direction: column; /* Llista vertical */
+        align-items: center;
+        padding: 0;
+        
+        /* Animació de tancament (ocult) */
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+        margin: 0;
+    }
+
+    .nav-links li a {
+        display: block;
+        padding: 1rem;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+        font-size: 1.1rem; /* Lletra més gran per a dits */
+    }
+
+    /* CLASSE ACTIVA (Quan el JS obre el menú) */
+    .nav-links.mobile-active {
+        max-height: 100vh; /* Suficient per mostrar tots els links */
+        opacity: 1;
+        padding: 1rem 0;
+    }
+
+    /* Animació del botó (es converteix en X) */
+    .mobile-menu-btn.open span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    .mobile-menu-btn.open span:nth-child(2) {
+        opacity: 0;
+    }
+    .mobile-menu-btn.open span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+}
+
+
+
+/* =========================================
+   CONFIGURACIÓ DARK MODE (DEFINITIVA & SENSE FLAIX)
+   ========================================= */
+
+/* 1. Definim les variables a l'HTML (perquè l'script del <head> les trobi ràpid) */
+html.dark-mode {
+    --color-fondo: #121212;              /* Negre suau */
+    --color-fondo-secundario: #1c1c1e;   /* Gris molt fosc */
+    --color-texto-principal: #f5f5f7;    /* Blanc trencat */
+    --color-texto-secundario: #a1a1a6;   /* Gris clar */
+    --color-borde: #333333;              /* Bordes foscos */
+    --color-accent: #ff3377;             /* Rosa */
+}
+
+/* 2. Apliquem el color de fons base a l'HTML i BODY */
+html, body {
+    background-color: var(--color-fondo);
+    color: var(--color-texto-principal);
+}
+
+/* 3. Transició suau (només quan NO estem carregant la pàgina) */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* FIX: Bloqueja la transició mentre la pàgina carrega (evita el fade-in inicial) */
+body.preload {
+    transition: none !important;
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+}
+
+/* 4. Estil del Botó del sol/lluna (El teu estil original) */
+.theme-btn {
+    background: none;
+    border: 1px solid var(--color-borde);
+    cursor: pointer;
+    font-size: 0.7rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    background-color: var(--color-fondo-secundario);
+    color: var(--color-texto-principal); /* Afegit per assegurar visibilitat */
+}
+
+.theme-btn:hover {
+    transform: scale(1.1);
+    border-color: var(--color-accent);
+}
+
+/* =========================================
+   ADAPTACIONS ESPECÍFIQUES DARK MODE
+   (Canviem 'body.dark-mode' per 'html.dark-mode')
+   ========================================= */
+
+/* Navbar principal */
+html.dark-mode .navbar {
+    background-color: rgba(28, 28, 30, 0.95);
+    border-bottom: 1px solid var(--color-borde);
+}
+
+/* Logo i botó mòbil */
+html.dark-mode .nav-logo {
+    color: var(--color-texto-principal);
+}
+
+html.dark-mode .mobile-menu-btn span {
+    background-color: var(--color-texto-principal);
+}
+
+/* Menú Mòbil Desplegable */
+@media (max-width: 768px) {
+    html.dark-mode .nav-links {
+        background-color: rgba(28, 28, 30, 0.98);
+    }
+
+    html.dark-mode .nav-links li a {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+}
+
+
+
+/* =========================================
+   BOTÓ "BACK TO TOP"
+   ========================================= */
+#back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--color-texto-principal); /* Per defecte fosc/clar segons tema */
+    color: var(--color-fondo); /* Text invertit */
+    border: none;
+    border-radius: 50%; /* Cercle perfecte */
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 900; /* Per sobre del contingut, per sota del menú mòbil (2000) */
+    
+    /* Animació d'aparició */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+/* Quan JS afegeix la classe 'visible' */
+#back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Efecte Hover */
+#back-to-top:hover {
+    background-color: var(--color-accent); /* Es torna Rosa al passar per sobre */
+    transform: translateY(-5px); /* Puja una mica */
+    box-shadow: 0 6px 15px rgba(255, 0, 85, 0.4);
+}
+
+/* Adaptació per a Mòbils (més petit i menys marge) */
+@media (max-width: 768px) {
+    #back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
     }
 }

@@ -4,14 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Programmer - El Món dels Videojocs</title>
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            // Si és fosc, afegim la classe a l'etiqueta HTML (document.documentElement)
+            // L'etiqueta HTML existeix des del primer mil·lisegon.
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark-mode');
+            }
+        })();
+    </script>
     <link rel="stylesheet" href="programmer.css">
+    <button id="back-to-top" aria-label="Tornar a l'inici">↑</button>
+    <script src="../JavaScript/main.js"></script>
 </head>
 <body>
 
     <header class="navbar">
         <nav class="nav-content">
             <a href="../index.html" class="nav-logo">👾 El Món dels Videojocs</a>
-            <ul>
+            <button class="mobile-menu-btn" aria-label="Obrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="../historia.html">Història</a></li>
                 <li><a href="../generes.html">Gèneres</a></li>
@@ -19,6 +36,11 @@
                 <li><a href="../profs.html"class="active">Professionals</a></li>
                 <li><a href="../gallery.html">Galeria</a></li>
                 <li><a href="../links.html">Enllaços</a></li>
+                <li>
+                    <button id="theme-toggle" class="theme-btn" aria-label="Canviar tema">
+                        🌙
+                    </button>
+                </li>
             </ul>
         </nav>
     </header>
@@ -31,7 +53,7 @@
                 <p class="hero-desc">El mag de la lògica. Converteix idees abstractes en realitats interactives.</p>
             </div>
             <div class="hero-backdrop">
-                [Imatge: Pantalles amb codi C++ / Unity / Unreal Engine]
+                <img src="https://i0.wp.com/www.wholetomato.com/blog/wp-content/uploads/2024/10/VS-Screenshot-with-highlighting.png?ssl=1" alt="[Imatge: Unreal Engine]">
             </div>
         </section>
 
@@ -51,7 +73,7 @@
 
             <div class="gallery-grid">
                 <div class="gallery-card">
-                    <div class="card-image">[Foto: Codi de moviment / Script]</div>
+                    <div class="card-image"><img src="https://miro.medium.com/1*srBw68JwCVqG-z79QokHBw.png" alt="[Foto: Codi de moviment / Script]"></div>
                     <div class="card-info">
                         <h3>Gameplay Programmer</h3>
                         <p>S'encarrega del que sent el jugador: el moviment, els salts, els trets i les mecàniques directes del joc.</p>
@@ -59,7 +81,7 @@
                 </div>
 
                 <div class="gallery-card">
-                    <div class="card-image">[Foto: Diagrama IA / Pathfinding]</div>
+                    <div class="card-image"><img src="https://awesometuts.com/wp-content/uploads/2021/09/ENEMY-AI-1024x683.jpg" alt="[Foto: Enemy IA]"></div>
                     <div class="card-info">
                         <h3>AI Programmer</h3>
                         <p>Dissenya el comportament dels enemics i aliats (NPCs), fent que semblin intel·ligents i reaccionin a l'entorn.</p>
@@ -67,7 +89,7 @@
                 </div>
 
                 <div class="gallery-card">
-                    <div class="card-image">[Foto: Renders gràfics / Shaders]</div>
+                    <div class="card-image"><img src="https://gamedevacademy.org/wp-content/uploads/2016/09/ShaderCode.png.webp" alt="[Foto: Shaders]"></div>
                     <div class="card-info">
                         <h3>Engine / Graphics</h3>
                         <p>Treballa en les entranyes del sistema: optimització, física, il·luminació i renderitzat d'imatges.</p>

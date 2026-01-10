@@ -4,14 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enllaços - El Món dels Videojocs</title>
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            // Si és fosc, afegim la classe a l'etiqueta HTML (document.documentElement)
+            // L'etiqueta HTML existeix des del primer mil·lisegon.
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark-mode');
+            }
+        })();
+    </script>
     <link rel="stylesheet" href="StyleSheets/links.css">
+    <button id="back-to-top" aria-label="Tornar a l'inici">↑</button>
+    <script src="JavaScript/main.js"></script>
 </head>
 <body>
 
     <header class="navbar">
         <nav class="nav-content">
             <a href="index.html" class="nav-logo">👾 El Món dels Videojocs</a>
-            <ul>
+            <button class="mobile-menu-btn" aria-label="Obrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="historia.html">Història</a></li>
                 <li><a href="generes.html">Gèneres</a></li>
@@ -19,6 +36,11 @@
                 <li><a href="profs.html">Professionals</a></li>
                 <li><a href="gallery.html">Galeria</a></li>
                 <li><a href="links.html" class="active">Enllaços</a></li>
+                <li>
+                    <button id="theme-toggle" class="theme-btn" aria-label="Canviar tema">
+                        🌙
+                    </button>
+                </li>
             </ul>
         </nav>
     </header>
@@ -26,12 +48,12 @@
     <main>
         <section class="page-hero">
             <div class="page-hero-content">
-                <h1>Recursos i Referències</h1>
-                <p class="subtitulo">Una selecció curada per aprofundir en la indústria.</p>
+                <h1 class="reveal">Recursos i Referències</h1>
+                <p class="subtitulo reveal delay-1">Una selecció curada per aprofundir en la indústria.</p>
             </div>
         </section>
 
-        <section class="links-block">
+        <section class="links-block reveal delay-2">
             <div class="block-header">
                 <h2>Actualitat i Crítica</h2>
                 <p>Mantigues al dia amb les últimes novetats i anàlisis.</p>
@@ -47,7 +69,7 @@
                     <span class="external-arrow">↗</span>
                 </a>
 
-                <a href="#" class="link-card">
+                <a href="https://es.ign.com/" target="_blank" class="link-card">
                     <div class="link-icon">IGN</div>
                     <div class="link-info">
                         <h3>IGN / Eurogamer</h3>
@@ -56,7 +78,7 @@
                     <span class="external-arrow">↗</span>
                 </a>
 
-                <a href="#" class="link-card">
+                <a href="https://www.youtube.com/@GMTK" target="_blank" class="link-card">
                     <div class="link-icon">YT</div>
                     <div class="link-info">
                         <h3>Canals d'Assaig</h3>
@@ -67,14 +89,14 @@
             </div>
         </section>
 
-        <section class="links-block">
+        <section class="links-block reveal">
             <div class="block-header">
                 <h2>Vols crear videojocs?</h2>
                 <p>Eines i documentació per començar la teva aventura.</p>
             </div>
             
             <div class="links-grid">
-                <a href="#" class="link-card">
+                <a href="https://learn.unity.com/" target="_blank" class="link-card">
                     <div class="link-icon dev">U</div>
                     <div class="link-info">
                         <h3>Unity Learn</h3>
@@ -83,7 +105,7 @@
                     <span class="external-arrow">↗</span>
                 </a>
 
-                <a href="#" class="link-card">
+                <a href="https://dev.epicgames.com/community/unreal-engine/learning" target="_blank" class="link-card">
                     <div class="link-icon dev">ue</div>
                     <div class="link-info">
                         <h3>Unreal Engine</h3>
@@ -92,10 +114,10 @@
                     <span class="external-arrow">↗</span>
                 </a>
 
-                <a href="#" class="link-card">
+                <a href="https://www.gamedeveloper.com/" target="_blank" class="link-card">
                     <div class="link-icon dev">G</div>
                     <div class="link-info">
-                        <h3>Gamasutra / GDQ</h3>
+                        <h3>GameDeveloper / GDQ</h3>
                         <p>Articles tècnics escrits per professionals i conferències de desenvolupadors.</p>
                     </div>
                     <span class="external-arrow">↗</span>
@@ -103,14 +125,14 @@
             </div>
         </section>
 
-        <section class="links-block">
+        <section class="links-block reveal">
             <div class="block-header">
                 <h2>Preservació Històrica</h2>
                 <p>Arxius i museus digitals.</p>
             </div>
             
             <div class="links-grid">
-                <a href="#" class="link-card">
+                <a href="https://gamehistory.org/" target="_blank" class="link-card">
                     <div class="link-icon history">🏛️</div>
                     <div class="link-info">
                         <h3>The Video Game History Foundation</h3>
@@ -119,7 +141,7 @@
                     <span class="external-arrow">↗</span>
                 </a>
 
-                <a href="#" class="link-card">
+                <a href="https://archive.org/details/internetarcade" target="_blank" class="link-card">
                     <div class="link-icon history">🕹️</div>
                     <div class="link-info">
                         <h3>Internet Archive: Arcade</h3>

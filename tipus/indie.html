@@ -4,14 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Indie - El Món dels Videojocs</title>
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            // Si és fosc, afegim la classe a l'etiqueta HTML (document.documentElement)
+            // L'etiqueta HTML existeix des del primer mil·lisegon.
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark-mode');
+            }
+        })();
+    </script>
     <link rel="stylesheet" href="indie.css">
+    <button id="back-to-top" aria-label="Tornar a l'inici">↑</button>
+    <script src="../JavaScript/main.js"></script>
 </head>
 <body>
 
     <header class="navbar">
         <nav class="nav-content">
             <a href="../index.html" class="nav-logo">👾 El Món dels Videojocs</a>
-            <ul>
+            <button class="mobile-menu-btn" aria-label="Obrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="../historia.html">Història</a></li>
                 <li><a href="../generes.html">Gèneres</a></li>
@@ -19,6 +36,11 @@
                 <li><a href="../profs.html">Professionals</a></li>
                 <li><a href="../gallery.html">Galeria</a></li>
                 <li><a href="../links.html">Enllaços</a></li>
+                <li>
+                    <button id="theme-toggle" class="theme-btn" aria-label="Canviar tema">
+                        🌙
+                    </button>
+                </li>
             </ul>
         </nav>
     </header>
@@ -31,7 +53,7 @@
                 <p class="hero-desc">Llibertat creativa total. Sense caps, sense límits, només passió.</p>
             </div>
             <div class="hero-backdrop">
-                [Imatge: Artístic / Pixel Art / Hollow Knight / Celeste]
+                <img src="https://wallpapers-clan.com/wp-content/uploads/2025/02/hollow-knight-sword-epic-glow-desktop-wallpaper-cover.jpg" alt="[Imatge: Hollow Knight]">
             </div>
         </section>
 
@@ -51,7 +73,7 @@
 
             <div class="gallery-grid">
                 <div class="gallery-card">
-                    <div class="card-image">[Foto: Minecraft (Alpha) / Stardew Valley]</div>
+                    <div class="card-image"><img src="https://images3.alphacoders.com/782/thumb-1920-782782.png" alt="[Foto: Stardew Valley]"></div>
                     <div class="card-info">
                         <h3>L'Èxit d'una Sola Persona</h3>
                         <p>Jocs com <em>Stardew Valley</em> o <em>Minecraft</em> van ser programats, dissenyats i dibuixats per un sol creador.</p>
@@ -59,7 +81,7 @@
                 </div>
 
                 <div class="gallery-card">
-                    <div class="card-image">[Foto: Undertale / Hades]</div>
+                    <div class="card-image"><img src="https://4kwallpapers.com/images/walls/thumbs_2t/16806.png" alt="[Foto: Hades]"></div>
                     <div class="card-info">
                         <h3>Narrativa Trencadora</h3>
                         <p>Sense la pressió de vendre milions, els indies poden explicar històries personals, estranyes o profundament emocionals.</p>
@@ -67,7 +89,7 @@
                 </div>
 
                 <div class="gallery-card">
-                    <div class="card-image">[Foto: Cuphead / Celeste]</div>
+                    <div class="card-image"><img src="https://images.alphacoders.com/873/thumb-1920-873679.jpg" alt="[Foto: Cuphead"></div>
                     <div class="card-info">
                         <h3>Estètica Única</h3>
                         <p>Des de dibuixos animats dels anys 30 fins a pixel art perfecte, l'estil visual és la seva gran arma.</p>

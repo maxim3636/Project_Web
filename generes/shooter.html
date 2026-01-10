@@ -5,7 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shooter - El Món dels Videojocs</title>
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            // Si és fosc, afegim la classe a l'etiqueta HTML (document.documentElement)
+            // L'etiqueta HTML existeix des del primer mil·lisegon.
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark-mode');
+            }
+        })();
+    </script>
     <link rel="stylesheet" href="shooter.css">
+    <button id="back-to-top" aria-label="Tornar a l'inici">↑</button>
+    <script src="../JavaScript/main.js"></script>
 </head>
 
 <body>
@@ -13,7 +25,12 @@
     <header class="navbar">
         <nav class="nav-content">
             <a href="../index.html" class="nav-logo">👾 El Món dels Videojocs</a>
-            <ul>
+            <button class="mobile-menu-btn" aria-label="Obrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="../historia.html">Història</a></li>
                 <li><a href="../generes.html" class="active">Gèneres</a></li>
@@ -21,6 +38,11 @@
                 <li><a href="../profs.html">Professionals</a></li>
                 <li><a href="../gallery.html">Galeria</a></li>
                 <li><a href="../links.html">Enllaços</a></li>
+                <li>
+                    <button id="theme-toggle" class="theme-btn" aria-label="Canviar tema">
+                        🌙
+                    </button>
+                </li>
             </ul>
         </nav>
     </header>
@@ -33,7 +55,7 @@
                 <p class="hero-desc">Reflexos, punteria i competició d'alt nivell.</p>
             </div>
             <div class="hero-backdrop">
-                [Imatge: DOOM / Call of Duty / Overwatch]
+                <img src="https://pbs.twimg.com/media/G3P9hJPXQAAhYK9.jpg" alt="[Imatge: ARC Raiders]">
             </div>
         </section>
 
@@ -54,7 +76,7 @@
 
             <div class="gallery-grid">
                 <div class="gallery-card">
-                    <div class="card-image">[Foto: DOOM / Half-Life]</div>
+                    <div class="card-image"><img src="https://images.wallpapersden.com/image/download/doom-eternal-4k-8k_a2pqa2uUmZqaraWkpJRsa21lrWloZ2U.jpg" alt="[Foto: DOOM]"></div>
                     <div class="card-info">
                         <h3>FPS (Primera Persona)</h3>
                         <p>La càmera simula els ulls del protagonista. Immersió total i acció ràpida.</p>
@@ -62,7 +84,7 @@
                 </div>
 
                 <div class="gallery-card">
-                    <div class="card-image">[Foto: Gears of War / Fortnite]</div>
+                    <div class="card-image"><img src="https://images.alphacoders.com/132/1326064.jpeg" alt="[Foto: Fortnite]"></div>
                     <div class="card-info">
                         <h3>TPS (Tercera Persona)</h3>
                         <p>Veiem el personatge sencer. Permet millor visió de l'entorn i ús de cobertures.</p>
@@ -70,7 +92,7 @@
                 </div>
 
                 <div class="gallery-card">
-                    <div class="card-image">[Foto: Valorant / CS:GO]</div>
+                    <div class="card-image"><img src="https://wallpapers.com/images/featured/valorant-305kescxw5dpup7y.jpg" alt="[Foto: Valorant]"></div>
                     <div class="card-info">
                         <h3>Tàctic i Competitiu</h3>
                         <p>Jocs basats en equips on l'estratègia és tan important com la punteria.</p>

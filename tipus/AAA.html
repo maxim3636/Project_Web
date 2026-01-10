@@ -4,14 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Triple A (AAA) - El Món dels Videojocs</title>
-    <link rel="stylesheet" href="AAA.css">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            // Si és fosc, afegim la classe a l'etiqueta HTML (document.documentElement)
+            // L'etiqueta HTML existeix des del primer mil·lisegon.
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark-mode');
+            }
+        })();
+    </script>
+    <link rel="stylesheet" href="aaa.css">
+    <button id="back-to-top" aria-label="Tornar a l'inici">↑</button>
+    <script src="../JavaScript/main.js"></script>
 </head>
 <body>
 
     <header class="navbar">
         <nav class="nav-content">
             <a href="../index.html" class="nav-logo">👾 El Món dels Videojocs</a>
-            <ul>
+            <button class="mobile-menu-btn" aria-label="Obrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="../historia.html">Història</a></li>
                 <li><a href="../generes.html">Gèneres</a></li>
@@ -19,6 +36,11 @@
                 <li><a href="../profs.html">Professionals</a></li>
                 <li><a href="../gallery.html">Galeria</a></li>
                 <li><a href="../links.html">Enllaços</a></li>
+                <li>
+                    <button id="theme-toggle" class="theme-btn" aria-label="Canviar tema">
+                        🌙
+                    </button>
+                </li>
             </ul>
         </nav>
     </header>
@@ -31,7 +53,7 @@
                 <p class="hero-desc">Pressupostos il·limitats. Tecnologia punta. L'espectacle total.</p>
             </div>
             <div class="hero-backdrop">
-                [Imatge: GTA V / Cyberpunk 2077 / God of War]
+                <img src="https://w0.peakpx.com/wallpaper/964/106/HD-wallpaper-god-of-war-ragnarok-gives-kratos-a-whole-new-suite-of-elemental-moves-gamesradar-god-of-war-ragnorok.jpg" alt="[Imatge: GTA V / Cyberpunk 2077 / God of War]">
             </div>
         </section>
 
@@ -51,7 +73,7 @@
 
             <div class="gallery-grid">
                 <div class="gallery-card">
-                    <div class="card-image">[Foto: Horizon Forbidden West / RDR2]</div>
+                    <div class="card-image"><img src="https://i.pinimg.com/736x/ee/f3/a4/eef3a41538a6bc281d67ecf4d40959e9.jpg" alt="[Foto: Black Myth Wukong]"></div>
                     <div class="card-info">
                         <h3>Hiperrealisme Gràfic</h3>
                         <p>Utilitzen les tecnologies més punteres (Ray Tracing, captura de moviments facials) per fregar el fotorealisme.</p>
@@ -59,7 +81,7 @@
                 </div>
 
                 <div class="gallery-card">
-                    <div class="card-image">[Foto: Assassin's Creed / GTA]</div>
+                    <div class="card-image"><img src="https://images.wallpapersden.com/image/download/4k-red-dead-redemption-2-gaming_bWZsbWWUmZqaraWkpJRobWllrWdma2U.jpg" alt="[Foto: RDR2]"></div>
                     <div class="card-info">
                         <h3>Mons Massius</h3>
                         <p>Mapes oberts de quilòmetres quadrats plens de detalls, missions i centenars d'hores de contingut.</p>
@@ -67,7 +89,7 @@
                 </div>
 
                 <div class="gallery-card">
-                    <div class="card-image">[Foto: Call of Duty / FIFA]</div>
+                    <div class="card-image"><img src="https://images7.alphacoders.com/140/1401126.jpg" alt="[Foto: FC26]"></div>
                     <div class="card-info">
                         <h3>Franquícies i Serveis</h3>
                         <p>Sovint s'actualitzen constantment o tenen llançaments anuals per mantenir una base de jugadors gegantina.</p>
@@ -77,7 +99,7 @@
         </section>
 
         <section class="type-navigation">
-            <a href="AA.html" class="nav-btn prev">
+            <a href="aa.html" class="nav-btn prev">
                 <span class="nav-label">Anterior</span>
                 <span class="nav-title">‹ Doble A (AA)</span>
             </a>

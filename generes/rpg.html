@@ -4,14 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RPG - El Món dels Videojocs</title>
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            // Si és fosc, afegim la classe a l'etiqueta HTML (document.documentElement)
+            // L'etiqueta HTML existeix des del primer mil·lisegon.
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark-mode');
+            }
+        })();
+    </script>
     <link rel="stylesheet" href="rpg.css">
+    <button id="back-to-top" aria-label="Tornar a l'inici">↑</button>
+    <script src="../JavaScript/main.js"></script>
 </head>
 <body>
 
     <header class="navbar">
         <nav class="nav-content">
             <a href="../index.html" class="nav-logo">👾 El Món dels Videojocs</a>
-            <ul>
+            <button class="mobile-menu-btn" aria-label="Obrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="../historia.html">Història</a></li>
                 <li><a href="../generes.html" class="active">Gèneres</a></li>
@@ -19,6 +36,11 @@
                 <li><a href="../profs.html">Professionals</a></li>
                 <li><a href="../gallery.html">Galeria</a></li>
                 <li><a href="../links.html">Enllaços</a></li>
+                <li>
+                    <button id="theme-toggle" class="theme-btn" aria-label="Canviar tema">
+                        🌙
+                    </button>
+                </li>
             </ul>
         </nav>
     </header>
@@ -31,7 +53,7 @@
                 <p class="hero-desc">Converteix-te en un altre. Viu vides infinites.</p>
             </div>
             <div class="hero-backdrop">
-                [Imatge: The Witcher / Final Fantasy / Cyberpunk]
+                <img src="https://i.redd.it/5vax2xu1hpz41.jpg" alt="[Imatge: The Witcher]">
             </div>
         </section>
 
@@ -50,7 +72,7 @@
 
             <div class="gallery-grid">
                 <div class="gallery-card">
-                    <div class="card-image">[Foto: Baldur's Gate / Skyrim]</div>
+                    <div class="card-image"><img src="https://i.pinimg.com/736x/cc/4f/88/cc4f88ee77beaf55f5ede995455ffd81.jpg" alt="[Foto: Skyrim]"></div>
                     <div class="card-info">
                         <h3>Llibertat d'Elecció</h3>
                         <p>Tu decideixes qui ets: un heroi noble o un mercenari sense escrúpols.</p>
@@ -58,7 +80,7 @@
                 </div>
 
                 <div class="gallery-card">
-                    <div class="card-image">[Foto: Final Fantasy / Persona]</div>
+                    <div class="card-image"><img src="https://www.hdwallpapers.in/download/persona_5_solo_4k_hd-HD.jpg" alt="[Foto: Persona]"></div>
                     <div class="card-info">
                         <h3>Sistemes de combat</h3>
                         <p>Des de torns estratègics fins a acció en temps real amb màgia i habilitats.</p>
@@ -66,7 +88,7 @@
                 </div>
 
                 <div class="gallery-card">
-                    <div class="card-image">[Foto: Elden Ring / Dark Souls]</div>
+                    <div class="card-image"><img src="https://images.steamusercontent.com/ugc/2058741034012525685/D0FBE13833A04573BA78B1584C510EFC5CED0DEF/" alt="[Foto: Elden Ring]"></div>
                     <div class="card-info">
                         <h3>Construcció de Móns</h3>
                         <p>Universos rics en història (Lore) que conviden a ser explorats fins a l'últim racó.</p>
